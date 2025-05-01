@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("combine.png");
+      background-size: auto;
+      opacity: ;
+    }
+    
+
+    .container {
+      padding: 30px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+  
+    .product-gallery {
+  padding: 40px 20px;
+ 
+    text-align: center;
+}
+
+.product-gallery h2 {
+  font-size: 50px;
+  margin-bottom: 30px;
+
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.description {
+  display: none;
+  padding: 15px;
+  font-size: 0.95rem;
+  color: #333;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
+
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+  
+  <section class="product-gallery">
+    <h2 style="font-family:'Times New Roman', Times, serif;">Our Products</h2>
+    <div class="grid-container">
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="mango.jpg" alt="Fruits">
+        <div class="description">Enjoy the king of fruits—rich, juicy, and naturally 
+          sweet. Our mangoes are handpicked at peak ripeness to ensure maximum flavor and freshness.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="pomegrants.jpg" alt="Textile & Leather">
+        <div class="description">Packed with antioxidants and bursting with juicy seeds, our pomegranates are a 
+          perfect blend of tartness and sweetness—ideal for snacking or juicing.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="banana.jpg" alt="Engine Goods">
+        <div class="description">Naturally sweet and energy-rich, our bananas are perfect 
+          for a quick snack, smoothies, or baking. Farm-fresh and rich in potassium.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="apple.jpg" alt="Electronics">
+        <div class="description">Crisp, juicy, and refreshing—our apples
+          are carefully selected for their superior taste and quality. Great for 
+          healthy snacking or cooking.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="green chill.jpg" alt="Electronics">
+        <div class="description">Spice up your dishes with our fresh green chilies—fiery, 
+          flavorful, and perfect for adding heat to your favorite recipes.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="spicy.jpg" alt="Electronics">
+        <div class="description">.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="onion.jpg" alt="Electronics">
+        <div class="description">Essential in every kitchen, our onions are pungent, 
+          firm, and versatile—perfect for frying, sautéing, or raw use in salads.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="tomato.jpg" alt="Electronics">
+        <div class="description">Ripe, red, and full of flavor—our tomatoes are perfect
+          for sauces, salads, and cooking. Rich in lycopene and natural sweetness.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="ginger.jpg" alt="Electronics">
+        <div class="description">Add a zesty kick with our fresh ginger—aromatic,
+        potent, and ideal for cooking or making teas and herbal remedies.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="spicy 1.jpg" alt="Electronics">
+        <div class="description">.</div>
+      </div>
+  
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="potato.jpg" alt="Electronics">
+        <div class="description">Wholesome and hearty, our potatoes are great for baking,
+          frying, or mashing. A kitchen staple with excellent texture and taste.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="cabbage.jpg" alt="Electronics">
+        <div class="description">.Fresh and crunchy, our cabbage is loaded with 
+          fiber and nutrients—ideal for salads, stir-fries, and fermented dishes.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="lady finger.jpg" alt="Electronics">
+        <div class="description">Tender and nutrient-rich, our ladyfinger is perfect for 
+          curries and stir-fries. Sourced fresh to preserve its taste and texture.</div>
+      </div>
+      <div class="product-card" onclick="showDescription(this)">
+        <img src="coriander.jpg" alt="Electronics">
+        <div class="description">Fragrant and full of flavor, our fresh coriander leaves 
+          enhance any dish with a bright, herbal note. Great for garnishing and cooking.</div>
+      </div>
+      <!-- Add more product cards as needed -->
+    </div>
+  </section>
+
+  <script>
+    function showDescription(card) {
+      const desc = card.querySelector('.description');
+      desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+<script>
+  function showDescription(clickedCard) {
+    const allDescriptions = document.querySelectorAll('.description');
+
+    allDescriptions.forEach(desc => {
+      if (clickedCard.querySelector('.description') !== desc) {
+        desc.style.display = 'none'; // Hide others
+      }
+    });
+
+    const currentDesc = clickedCard.querySelector('.description');
+    const isVisible = currentDesc.style.display === 'block';
+    currentDesc.style.display = isVisible ? 'none' : 'block';
+  }
+</script>
+
+ 
+  
+
+  
+  
+  
+  
+</body>
+</html

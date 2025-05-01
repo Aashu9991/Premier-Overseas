@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Product Portal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      scroll-behavior: smooth;
+    }
+    
+    body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: lightskyblue;
+  opacity: 0.30; /* Lower value = more transparent */
+  z-index: -1;
+}
+
+header {
+  padding: 15px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Remove these to allow scroll */
+  /* position: sticky;
+  top: 0; */
+}
+
+
+    header h1 {
+      font-size: 22px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      font-size: 30px;
+      transition: opacity 0.3s;
+      font-weight: bold;
+      font-style: italic;
+      font-family: Cambria;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color:lightcyan;
+      padding: 10px 20px;
+      font-family: fantasy;
+      
+    }
+
+    .mobile-menu a {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      color: black;
+      text-decoration: none;
+    }
+
+    .banner {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+
+}
+
+.banner-content {
+    z-index: 1;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    font-size: 46px;
+    font-weight: bold;
+    
+}
+
+    .banner button {
+      position: absolute;
+      bottom: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgba(0, 123, 255, 0.8);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .banner button:hover {
+      background-color: rgba(0, 86, 179, 0.9);
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+     
+      opacity: 0;
+      transform: translateY(40px);
+      text-align: justify;
+      text-justify: inter-word;
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+.section h2{
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.section p{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.quick-contact {
+    background-color: lightskyblue;
+  
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.quick-contact h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.send-button {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .mobile-menu.show {
+        display: flex;
+      }
+
+      .banner {
+        font: size 15px;
+        height: 300px;
+        font-family:'Times New Roman', Times, serif;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="6.png" alt="Logo" height="250" width="400">
+        
+      </div><br><br><br>
+      
+    <nav class="desktop-menu"><br>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="product.html">Products</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="product.html">Products</a>
+  </div>
+
+
+
+  <section class="banner">
+    <div class="banner-content">
+        Welcome to Premier Overseas
+    </div>
+  </section>
+  
+  <script>
+    const banner = document.querySelector('.banner');
+    const images = [
+      'fruits.jpg',
+      'vegetabels.jpg',
+      'textile.jpg',
+      'leather.jpg'
+    ];
+  
+    let index = 0;
+  
+    function changeBannerBackground() {
+      banner.style.backgroundImage = `url('${images[index]}')`;
+      index = (index + 1) % images.length;
+    }
+  
+    changeBannerBackground(); // Set first image
+    setInterval(changeBannerBackground, 4000); // Change every 4 seconds
+  </script>
+  
+
+  <section class="section" id="about">
+    <h2 style="text-align: center;">About Us</h2>
+    <p>
+
+        Welcome to our company – a dedicated exporter of premium quality goods including fresh fruits, vegetables, textiles, leather products, 
+        electronics, and engineering goods. With a passion for excellence and a commitment to international standards, we strive to be a 
+        reliable bridge between local producers and global markets.
+    </p>
+        
+       <p> Our journey began with a simple mission: to bring the best of India’s agricultural and industrial products to the world. We carefully 
+        source fruits and vegetables from trusted farmers who follow sustainable practices, ensuring freshness, nutritional value, and safe 
+        handling. From seasonal produce to year-round staples, we deliver nature’s goodness with care.
+       </p>
+        
+     <p>  In the textile and leather segment, we offer a wide variety of products that reflect both tradition and innovation. Our textiles are 
+        known for quality, durability, and style, while our leather goods combine craftsmanship with modern design. Whether it's garments, 
+        accessories, or raw materials, we guarantee products that meet diverse customer needs.
+    </p>
+        
+    <p> We also cater to the fast-evolving sectors of electronics and engineering goods. From essential electronic items to precision-engineered 
+        components, we ensure our offerings are reliable, efficient, and technologically sound. Every product we export is thoroughly tested and 
+        certified for quality and compliance.
+    </p>
+
+     <p> With a strong logistics network and a customer-first approach, we ensure timely deliveries and transparent communication throughout the 
+        export process. Our team of experienced professionals is always ready to assist clients with tailored solutions and dedicated support.
+    </p>
+
+       <p> As we grow and expand our reach, our core values remain the same – trust, quality, and commitment. We look forward to building lasting 
+        relationships with partners around the world and continuing our mission of delivering excellence, one shipment at a time..</p>
+  </section>
+
+  <section class="section">
+
+    <h2 style="text-align: center;">Why Choose Us</h2>
+<p class="reveal">
+
+    <h1 style="font-size: 20px">1. Wide Range of Products </h1>
+We offer a diverse portfolio that includes fresh fruits, vegetables, textiles, leather goods, electronics, and engineering products – all under 
+one roof. This variety makes us a one-stop solution for your import needs.
+</p>
+<p class="reveal">
+    <h1 style="font-size: 20px">2. Assured Quality</h1>
+Quality is our top priority. Every product we export goes through strict quality checks and adheres to international standards to ensure you 
+receive only the best.
+</p>
+
+<p class="reveal">
+    <h1 style="font-size: 20px">3. Reliable Sourcing</h1>
+We work closely with trusted farmers, manufacturers, and suppliers who follow ethical and sustainable practices. Our strong sourcing network
+ ensures consistency and transparency in every deal.
+</p>
+
+<p class="reveal">
+    <h1 style="font-size: 20px">
+4. Competitive Pricing</h1>
+Our efficient supply chain and long-standing partnerships allow us to offer top-quality goods at highly competitive rates without compromising 
+on value.
+
+</p>
+
+<p class="reveal">
+    <h1 style="font-size: 20px">
+5. Timely Delivery</h1>
+With a robust logistics system and experienced team, we ensure your orders are delivered safely and on time, every time.
+
+</p>
+
+<p class="reveal">
+    <h1 style="font-size: 20px">
+6. Customer-Centric Approach</h1>
+We believe in building long-term relationships with our clients. From inquiry to post-delivery support, our team is always available to provide personalized service and assistance.
+</p>
+  </section>
+
+<script>
+    const revealElements = document.querySelectorAll('.reveal');
+  
+    function revealOnScroll() {
+      const triggerPoint = window.innerHeight * 0.85;
+  
+      revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < triggerPoint) {
+          el.classList.add('visible');
+        }
+      });
+    }
+  
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll); // in case it's already in view
+  </script>
+  
+
+  <section class="quick-contact">
+    <h2>Quick Contact</h2>
+    <form class="contact-form" action="/contact" method="post">
+      <div class="form-group">
+        <input type="text" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Company Name" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" placeholder="Phone Number" required>
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="send-button">Send Message</button>
+    </form>
+  </section>
+  
+
+  <script>
+    function toggleMobileMenu() {
+      document.getElementById("mobileMenu").classList.toggle("show");
+    }
+
+    // Scroll animation
+    const sections = document.querySelectorAll('.section');
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add('visible');
+        }
+      });
+    });
+  </script>
+
+
+
+</body>
+</html>
